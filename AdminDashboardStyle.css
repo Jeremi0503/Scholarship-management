@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --dark-bg: #0f172a;
+    --card-bg: #1e293b;
+    --card-hover: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --border-color: #334155;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: var(--card-hover);
+    color: var(--text-primary);
+}
+
+.nav-logout-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--danger-color);
+    background: var(--danger-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-logout-btn:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.admin-dashboard-container {
+    margin-top: 120px;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+    color: var(--text-primary);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.admin-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.admin-section {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.admin-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.admin-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.users-list, .applications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.user-card, .application-card {
+    background: var(--dark-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.user-card:hover, .application-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.application-card.status-approved {
+    border-left-color: var(--secondary-color);
+}
+
+.application-card.status-rejected {
+    border-left-color: var(--danger-color);
+}
+
+.application-card.status-pending {
+    border-left-color: var(--warning-color);
+}
+
+.user-card h3, .application-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.user-card p, .application-card p {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.file-links {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.file-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.file-links a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.admin-actions, .application-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.approve-btn, .reject-btn, .delete-btn, .update-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.approve-btn {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.approve-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.reject-btn {
+    background: var(--danger-color);
+    color: white;
+}
+
+.reject-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background: var(--text-muted);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #475569;
+    transform: translateY(-1px);
+}
+
+.update-btn {
+    background: var(--warning-color);
+    color: #000;
+}
+
+.update-btn:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+}
+
+.status {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    color: var(--warning-color);
+}
+
+.status-approved {
+    color: var(--secondary-color);
+}
+
+.status-rejected {
+    color: var(--danger-color);
+}
+
+.warning {
+    color: var(--warning-color);
+    font-weight: bold;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.close {
+    color: var(--text-muted);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--text-primary);
+}
+
+.send-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+.applicant-profile {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.profile-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.application-card {
+    position: relative;
+}
+
+.application-card .applicant-profile {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* Message textarea styling */
+#adminMessage {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+#adminMessage:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav {
+        gap: 15px;
+    }
+    
+    .admin-dashboard-container {
+        margin-top: 150px;
+    }
+    
+    .users-list, .applications-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-actions, .application-actions {
+        flex-direction: column;
+    }
+    
+    .admin-section {
+        padding: 20px;
+    }
+    
+    .application-card .applicant-profile {
+        float: none;
+        margin: 0 auto 15px;
+    }
+}

@@ -1,0 +1,7 @@
+Super Admin:
+E: SuperAdmin@gmail.com
+P: Super123!
+
+Admin Account:
+E: Ham@onecainta.edu.ph
+P: Admin123!
